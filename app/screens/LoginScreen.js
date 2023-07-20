@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import {View, StyleSheet, TextInput, SafeAreaView, Button, Text, TouchableOpacity} from 'react-native';
+import React, { useState } from 'react'
+import {View, StyleSheet, TextInput, SafeAreaView, Button, Text, TouchableOpacity} from 'react-native'
 
 const LoginScreen = ({ navigation }) => {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
     const handleLogin = () => {
         
-        console.log('Email:', email);
-        console.log('Password:', password);
-    };
+        console.log('Email:', email)
+        console.log('Password:', password)
+    }
 
     return (
             <View style={styles.container}>
@@ -48,7 +48,7 @@ const LoginScreen = ({ navigation }) => {
                     </Text>
                 </View>
             </View>
-    );
+    )
 }
 
 const styles = StyleSheet.create({
@@ -90,4 +90,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default LoginScreen;
+export default LoginScreen
