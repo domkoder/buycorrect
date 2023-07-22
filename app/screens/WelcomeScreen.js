@@ -1,7 +1,6 @@
 import {useState, useRef} from 'react'
 import {
   View,
-  Text,
   StyleSheet,
   Dimensions,
   ScrollView,
@@ -12,10 +11,11 @@ import {
   Inter_500Medium,
   Inter_400Regular,
 } from '@expo-google-fonts/inter'
-
 import {Feather} from '@expo/vector-icons'
 
 import colors from '../config/colors'
+import AppText from '../components/AppText'
+import Heading from '../components/Heading'
 
 // import svg images
 import Onboarding1 from '../assets/onboarding1.svg'
@@ -109,34 +109,35 @@ const WelcomeScreen = ({navigation}) => {
                   width={300}
                   height={300}
                 />
-                <Text
+                <Heading
+                  size="small"
                   style={[
                     styles.title,
                     {color: index % 2 !== 0 ? colors.inkDarkest : colors.white},
                   ]}
                 >
                   {title}
-                </Text>
-                <Text
+                </Heading>
+                <AppText
+                  weight="400"
                   style={[
                     styles.description,
                     {color: index % 2 !== 0 ? colors.inkDarkest : colors.white},
                   ]}
                 >
                   {description}
-                </Text>
+                </AppText>
               </View>
 
               {/* skip button */}
               <TouchableOpacity style={styles.skipButton} onPress={handleSkip}>
-                <Text
-                  style={[
-                    styles.skipButtonText,
-                    {color: index % 2 !== 0 ? colors.inkDarkest : colors.white},
-                  ]}
+                <AppText
+                  style={{
+                    color: index % 2 !== 0 ? colors.inkDarkest : colors.white,
+                  }}
                 >
                   Skip
-                </Text>
+                </AppText>
               </TouchableOpacity>
 
               {/* scroll indicator */}
@@ -210,33 +211,29 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontFamily: 'Inter_500Medium',
-    fontSize: 24,
-    fontWeight: 'medium',
     marginBottom: 20,
   },
+
   description: {
-    fontFamily: 'Inter_400Regular',
-    fontSize: 14,
     textAlign: 'center',
     color: 'white',
+    opacity: 0.8,
   },
+
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: 20,
     marginTop: 20,
   },
+
   skipButton: {
     padding: 10,
     position: 'absolute',
     top: 60,
     right: 20,
   },
-  skipButtonText: {
-    fontSize: 16,
-    color: colors.white,
-  },
+
   nextButton: {
     position: 'absolute',
     bottom: 65,
@@ -252,6 +249,7 @@ const styles = StyleSheet.create({
     bottom: 90,
     left: 30,
   },
+
   indicator: {
     width: 8,
     height: 8,
@@ -259,12 +257,15 @@ const styles = StyleSheet.create({
     backgroundColor: colors.skyDark,
     marginHorizontal: 4,
   },
+
   activeIndicatorPrimary: {
     backgroundColor: colors.primaryDarkest,
   },
+
   activeIndicatorSecondary: {
     backgroundColor: colors.white,
   },
+
   blobContainer: {
     width: 134,
     height: 206,
@@ -272,6 +273,7 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
   },
+
   blob: {
     right: -10,
   },
