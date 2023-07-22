@@ -1,22 +1,21 @@
 import {useState, useRef} from 'react'
 import {
   View,
-  Text,
   StyleSheet,
   Dimensions,
   ScrollView,
   TouchableOpacity,
 } from 'react-native'
-import AppText from '../components/AppText'
 import {
   useFonts,
   Inter_500Medium,
   Inter_400Regular,
 } from '@expo-google-fonts/inter'
-
 import {Feather} from '@expo/vector-icons'
 
 import colors from '../config/colors'
+import AppText from '../components/AppText'
+import Heading from '../components/Heading'
 
 // import svg images
 import Onboarding1 from '../assets/onboarding1.svg'
@@ -110,14 +109,15 @@ const WelcomeScreen = ({navigation}) => {
                   width={300}
                   height={300}
                 />
-                <Text
+                <Heading
+                  size="small"
                   style={[
                     styles.title,
                     {color: index % 2 !== 0 ? colors.inkDarkest : colors.white},
                   ]}
                 >
                   {title}
-                </Text>
+                </Heading>
                 <AppText
                   weight="400"
                   style={[
@@ -211,9 +211,6 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontFamily: 'Inter_500Medium',
-    fontSize: 24,
-    fontWeight: 'medium',
     marginBottom: 20,
   },
 

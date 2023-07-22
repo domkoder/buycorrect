@@ -106,7 +106,8 @@ const TabNavigator = () => (
 
 export default function App() {
   return (
-    <WelcomeScreen />
+    <Products />
+    // <WelcomeScreen />
     // <NavigationContainer>
     //   {/* <AuthNavigator /> */}
     //   <TabNavigator />
