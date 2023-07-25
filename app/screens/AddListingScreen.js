@@ -66,7 +66,10 @@ const AddListingScreen = () => {
 
   const selectImage = async () => {
     try {
-      const result = await ImagePicker.launchImageLibraryAsync()
+      const result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        quality: 0.5
+      })
 
       if (!result.canceled) {
         setImageUri(result.assets[0].uri)
