@@ -6,6 +6,7 @@ import Products from './app/screens/Products'
 import ProductDetails from './app/screens/ProductDetails'
 import AddListingScreen from './app/screens/AddListingScreen'
 import WelcomeScreen from './app/screens/WelcomeScreen'
+import ViewImageScreen from './app/screens/ViewImageScreen'
 
 const Stack = createNativeStackNavigator()
 const ProductNavigator = () => (
@@ -106,11 +107,9 @@ const TabNavigator = () => (
 
 export default function App() {
   return (
-    <Products />
-    // <WelcomeScreen />
-    // <NavigationContainer>
-    //   {/* <AuthNavigator /> */}
-    //   <TabNavigator />
-    // </NavigationContainer>
+    <NavigationContainer>
+      {/* <AuthNavigator /> */}
+      <TabNavigator />
+    </NavigationContainer>
   )
 }
