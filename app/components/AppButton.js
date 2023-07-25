@@ -6,10 +6,10 @@ import AppText from './AppText'
 function AppButton({title, onPress, variant = 'primary'}) {
   return (
     <TouchableOpacity
-      style={[styles.button, {backgroundColor: colors[variant]}]}
+      style={[styles.button, styles[variant]]}
       onPress={onPress}
     >
-      <AppText>{title}</AppText>
+      <AppText style={styles[`text_${variant}`]}>{title}</AppText>
     </TouchableOpacity>
   )
 }
@@ -23,6 +23,23 @@ const styles = StyleSheet.create({
     padding: 15,
     width: '100%',
     marginVertical: 10,
+    marginTop: 200,
+  },
+
+  primary: {
+    backgroundColor: colors.primaryBase,
+  },
+
+  text_primary: {
+    color: colors.white,
+  },
+
+  secondary: {
+    backgroundColor: colors.primaryLightest,
+  },
+
+  text_secondary: {
+    color: colors.primaryBase,
   },
 })
 

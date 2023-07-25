@@ -5,6 +5,7 @@ import {
   Inter_400Regular,
   Inter_700Bold,
 } from '@expo-google-fonts/inter'
+import colors from '../config/colors'
 
 const AppText = ({
   children,
@@ -35,6 +36,7 @@ const styles = StyleSheet.create({
   text: {
     fontStyle: 'normal',
     fontWeight: 500,
+    color: colors.inkDarkest,
   },
 
   large: {
