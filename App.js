@@ -8,6 +8,14 @@ import AddListingScreen from './app/screens/AddListingScreen'
 import WelcomeScreen from './app/screens/WelcomeScreen'
 import ViewImageScreen from './app/screens/ViewImageScreen'
 
+import AuthNavigator from './app/navigation/AuthNavigator'
+import MessageNavigator from './app/navigation/MessageNavigator'
+import ProfileNavigator from './app/navigation/ProfileNavigator'
+import colors from './app/config/colors'
+import navigationTheme from './app/navigation/navigationTheme'
+
+import {Amplify} from 'aws-amplify'
+
 const Stack = createNativeStackNavigator()
 const ProductNavigator = () => (
   <Stack.Navigator
@@ -52,7 +60,12 @@ const AddListingNavigator = () => (
 
 const Tab = createBottomTabNavigator()
 const TabNavigator = () => (
-  <Tab.Navigator screenOptions={{headerShown: false}}>
+  <Tab.Navigator
+    screenOptions={{
+      headerShown: false,
+      tabBarActiveTintColor: colors.primaryBase,
+    }}
+  >
     <Tab.Screen
       name="Home"
       component={ProductNavigator}
@@ -85,7 +98,7 @@ const TabNavigator = () => (
 
     <Tab.Screen
       name="Messages"
-      component={Products}
+      component={MessageNavigator}
       options={{
         tabBarIcon: ({color, size}) => (
           <Feather name="message-square" size={size} color={color} />
@@ -95,7 +108,7 @@ const TabNavigator = () => (
 
     <Tab.Screen
       name="Profile"
-      component={Products}
+      component={ProfileNavigator}
       options={{
         tabBarIcon: ({color, size}) => (
           <Feather name="user" size={size} color={color} />
@@ -107,7 +120,9 @@ const TabNavigator = () => (
 
 export default function App() {
   return (
-    <NavigationContainer>
+    // <Products />
+    // <WelcomeScreen />
+    <NavigationContainer theme={navigationTheme}>
       {/* <AuthNavigator /> */}
       <TabNavigator />
     </NavigationContainer>
