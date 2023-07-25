@@ -2,6 +2,7 @@ export default {
   white: '#fff',
   primaryDarkest: '#5538EE',
   primaryBase: '#6B4EFF',
+  primaryDanger: '#FF5247',
   primaryLight: '#9990FF',
   primaryLighter: '#C6C4FF',
   primaryLightest: '#E7E7FF',
