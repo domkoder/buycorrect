@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import {NavigationContainer} from '@react-navigation/native'
 import {Feather} from '@expo/vector-icons'
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
@@ -63,6 +64,7 @@ const AddListingNavigator = () => (
 )
 
 const Tab = createBottomTabNavigator()
+
 const TabNavigator = () => (
   <Tab.Navigator
     screenOptions={{
@@ -122,14 +124,22 @@ const TabNavigator = () => (
   </Tab.Navigator>
 )
 
-function App() {
+export default function App() {
+
+  const [ status, setStatus ] = useState(false)
+
   return (
     // <Products />
-    <LoginScreen />
-    // <NavigationContainer theme={navigationTheme}>
-    //   {/* <AuthNavigator /> */}
-    //   <TabNavigator />
-    // </NavigationContainer>
+    // <WelcomeScreen />
+    <NavigationContainer theme={navigationTheme}>
+      {status 
+      ? 
+        <TabNavigator />
+      : 
+        <AuthNavigator status={{status, setStatus}} />
+      }
+    </NavigationContainer>
+
   )
 }
 

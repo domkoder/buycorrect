@@ -3,7 +3,7 @@ import {View, StyleSheet, TextInput, Text, TouchableOpacity} from 'react-native'
 
 import RNPickerSelect from 'react-native-picker-select'
 
-const RegisterScreen = ({navigation}) => {
+const RegisterScreen = ({navigation, someProps}) => {
   const [firstname, setFirstname] = useState('')
   const [lastname, setLastname] = useState('')
   const [university, setUniversity] = useState('')
@@ -28,6 +28,9 @@ const RegisterScreen = ({navigation}) => {
   const handleRegister = () => {
     console.log('Email:', email)
     console.log('Password:', password)
+
+    someProps.status.setStatus(true)
+    
   }
 
   return (
