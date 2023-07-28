@@ -16,6 +16,7 @@ export const MessageCard = ({imageSource, title, subTitle}) => {
 const styles = StyleSheet.create({
   card: {
     flexDirection: 'row',
+    alignItems: 'center',
     width: '100%',
     marginBottom: 12,
     marginEnd: 8,
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
   },
   cardBody: {
     padding: 8,
-    width: '100%'
+    width: '100%',
   },
   title: {
     fontSize: 16,

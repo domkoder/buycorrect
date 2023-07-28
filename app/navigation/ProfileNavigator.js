@@ -15,12 +15,13 @@ const ProfileNavigator = () => (
     />
 
     <Stack.Screen
-      name='ChangePasswordScreen'
-      component={ChangePasswordScreen} 
+      name="ChangePasswordScreen"
+      component={ChangePasswordScreen}
       options={{
         headerTitle: '',
         headerTransparent: true,
-      }} />
+      }}
+    />
   </Stack.Navigator>
 )
 

@@ -1,6 +1,5 @@
 import {
   View,
-  Text,
   TextInput,
   SafeAreaView,
   StyleSheet,
@@ -13,29 +12,10 @@ import {MaterialCommunityIcons} from '@expo/vector-icons'
 import * as Device from 'expo-device'
 
 import {ProductCard} from '../components/ProductCard'
-
-const PillFilter = ({tag}) => {
-  return (
-    <View
-      style={{
-        paddingHorizontal: 16,
-        paddingVertical: 8,
-        backgroundColor: '#E7E7FF',
-        marginRight: 8,
-        borderRadius: 32,
-        fontSize: 12,
-      }}
-    >
-      <Text>{tag}</Text>
-    </View>
-  )
-}
+import PillFilter from '../components/PillFilter'
+import colors from '../config/colors'
 
 export default function Products({navigation}) {
-  // const windowWidth = Dimensions.get('window').width
-  const numColumns = 2
-  // const cardWidth = (windowWidth - (numColumns + 1) * 8) / numColumns
-
   let tags = ['All', 'Electronics', 'Books', 'Home', 'Fashion']
 
   const products = [
@@ -101,11 +81,10 @@ export default function Products({navigation}) {
           </ScrollView>
         </View>
 
-        <View style={{paddingHorizontal: 23, alignItems: 'center'}}>
+        <View style={{paddingHorizontal: 23}}>
           <FlatList
             data={products}
-            numColumns={numColumns}
-            horizontal={false}
+            keyExtractor={item => item.id}
             renderItem={({item}) => (
               <TouchableOpacity
                 onPress={() =>
@@ -119,11 +98,9 @@ export default function Products({navigation}) {
                 />
               </TouchableOpacity>
             )}
-            keyExtractor={item => item.id}
-            contentContainerStyle={styles.flatListContainer}
+            // contentContainerStyle={styles.flatListContainer}
             showsVerticalScrollIndicator={false}
             showsHorizontalScrollIndicator={false}
-            scroll
           />
         </View>
       </View>
@@ -134,12 +111,7 @@ export default function Products({navigation}) {
 const styles = StyleSheet.create({
   container: {
     paddingTop: Device.osName === 'Android' ? StatusBar.currentHeight : 0,
-  },
-  flatListContainer: {
-    justifyContent: 'space-between',
-    paddingBottom: 230,
-    // paddingHorizontal: 8,
-    // paddingTop: 8,
+    backgroundColor: colors.white,
   },
   searchContainer: {
     flexDirection: 'row',
@@ -150,7 +122,7 @@ const styles = StyleSheet.create({
   },
   search: {
     borderRadius: 8,
-    backgroundColor: '#E7E7FF',
+    backgroundColor: colors.skyLighter,
     fontSize: 16,
     height: 36,
     width: 325,

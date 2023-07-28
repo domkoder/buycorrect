@@ -10,6 +10,11 @@
       "StackName": "amplify-buycorrect-dev-00316",
       "StackId": "arn:aws:cloudformation:us-east-1:767589499669:stack/amplify-buycorrect-dev-00316/a56699d0-25bf-11ee-ad1b-0a884f44feab",
       "AmplifyAppId": "d2afopcc5xq7w0"
+    },
+    "categories": {
+      "auth": {
+        "buycorrect7a70d456": {}
+      }
     }
   }
 }
