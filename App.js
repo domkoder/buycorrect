@@ -14,7 +14,11 @@ import ProfileNavigator from './app/navigation/ProfileNavigator'
 import colors from './app/config/colors'
 import navigationTheme from './app/navigation/navigationTheme'
 
+import LoginScreen from './app/screens/LoginScreen'
+import {withAuthenticator, useAuthenticator} from '@aws-amplify/ui-react-native'
 import {Amplify} from 'aws-amplify'
+import awsExports from './src/aws-exports'
+Amplify.configure(awsExports)
 
 const Stack = createNativeStackNavigator()
 const ProductNavigator = () => (
@@ -118,13 +122,15 @@ const TabNavigator = () => (
   </Tab.Navigator>
 )
 
-export default function App() {
+function App() {
   return (
     // <Products />
-    // <WelcomeScreen />
-    <NavigationContainer theme={navigationTheme}>
-      {/* <AuthNavigator /> */}
-      <TabNavigator />
-    </NavigationContainer>
+    <LoginScreen />
+    // <NavigationContainer theme={navigationTheme}>
+    //   {/* <AuthNavigator /> */}
+    //   <TabNavigator />
+    // </NavigationContainer>
   )
 }
+
+export default App
