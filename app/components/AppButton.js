@@ -3,10 +3,10 @@ import {StyleSheet, TouchableOpacity} from 'react-native'
 import colors from '../config/colors'
 import AppText from './AppText'
 
-function AppButton({title, onPress, variant = 'primary'}) {
+function AppButton({title, onPress, style, variant = 'primary'}) {
   return (
     <TouchableOpacity
-      style={[styles.button, styles[variant]]}
+      style={[styles.button, styles[variant], style]}
       onPress={onPress}
     >
       <AppText style={styles[`text_${variant}`]}>{title}</AppText>
@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
     padding: 15,
     width: '100%',
     marginVertical: 10,
-    marginTop: 200,
   },
 
   primary: {

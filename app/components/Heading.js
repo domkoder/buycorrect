@@ -1,7 +1,7 @@
 import {StyleSheet, Text} from 'react-native'
 import {useFonts, Inter_700Bold} from '@expo-google-fonts/inter'
 
-const Heading = ({children, size = 'regular', style: customStyles = {}}) => {
+const Heading = ({children, size = 'regular', style}) => {
   let [fontsLoaded] = useFonts({
     Inter_700Bold,
   })
@@ -10,7 +10,7 @@ const Heading = ({children, size = 'regular', style: customStyles = {}}) => {
     return null
   }
 
-  return <Text style={[styles[size], customStyles]}>{children}</Text>
+  return <Text style={[styles.text, styles[size], style]}>{children}</Text>
 }
 
 export default Heading
