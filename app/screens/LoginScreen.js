@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {View, StyleSheet, TextInput, SafeAreaView, Button, Text, TouchableOpacity} from 'react-native'
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = ({ navigation, someProps }) => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -10,6 +10,9 @@ const LoginScreen = ({ navigation }) => {
         
         console.log('Email:', email)
         console.log('Password:', password)
+        console.log(someProps)
+
+        someProps.status.setStatus(true)
     }
 
     return (
