@@ -1,4 +1,5 @@
-import {View, Text, StyleSheet, Image} from 'react-native'
+import {View, StyleSheet, Image} from 'react-native'
+import AppText from './AppText'
 import colors from '../config/colors'
 
 export const ProductCard = ({imageSource, title, price}) => {
@@ -6,8 +7,10 @@ export const ProductCard = ({imageSource, title, price}) => {
     <View style={styles.card}>
       <Image source={imageSource} style={styles.image} />
       <View style={styles.cardBody}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.price}>{price}</Text>
+        <AppText style={styles.title}>{title}</AppText>
+        <AppText size="small" style={styles.price}>
+          {price}
+        </AppText>
       </View>
     </View>
   )
@@ -15,35 +18,26 @@ export const ProductCard = ({imageSource, title, price}) => {
 
 const styles = StyleSheet.create({
   card: {
-    width: 178,
-    marginBottom: 12,
-    marginEnd: 8,
-    borderRadius: 8,
+    borderRadius: 15,
     backgroundColor: colors.white,
-    shadowColor: colors.inkDarkest,
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 4,
-    overflow: 'hidden',
+    marginBottom: 20,
+    borderColor: colors.skyLight,
+    borderWidth: 1,
   },
+
   image: {
     width: '100%',
     height: 200,
-    borderTopLeftRadius: 8,
-    borderTopRightRadius: 8,
+    borderTopEndRadius: 15,
+    borderTopStartRadius: 15,
   },
   cardBody: {
-    padding: 8,
+    padding: 20,
   },
   title: {
-    fontSize: 13,
-    fontWeight: 'semibold',
-    // marginBottom: 8,
     color: colors.inkDarkest,
   },
   price: {
-    fontSize: 12,
     color: colors.primaryBase,
   },
 })

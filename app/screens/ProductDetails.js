@@ -5,7 +5,6 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
-  Alert,
 } from 'react-native'
 
 import photo from '../assets/product_detail.png'
@@ -19,14 +18,17 @@ export default function ProductDetails({route}) {
         <Text style={styles.price}>&#8358;190,00</Text>
       </View>
 
-      <TouchableOpacity
-        style={{paddingHorizontal: 23}}
-        onPress={() => {
-          Alert.prompt('Name', 'Please enter your name', name =>
-            console.log(name),
-          )
-        }}
-      >
+      <View style={styles.profile}>
+        <View style={styles.profilePicture}>
+          <Image source={require('../assets/profile.png')} />
+        </View>
+        <View style={{paddingHorizontal: 16}}>
+          <Text style={{fontSize: 24, fontWeight: 'bold'}}>Nandom</Text>
+          <Text style={{fontSize: 16}}>nandom@buycorrect.com</Text>
+        </View>
+      </View>
+
+      <TouchableOpacity style={{paddingHorizontal: 23}} onPress={() => {}}>
         <View style={styles.contactButton}>
           <Text style={styles.contactText}>Contact Seller</Text>
         </View>
@@ -54,15 +56,6 @@ export default function ProductDetails({route}) {
         </View>
       </View>
 
-      <View style={styles.profile}>
-        <View style={styles.profilePicture}>
-          <Image source={require('../assets/profile.png')} />
-        </View>
-        <View style={{paddingHorizontal: 16}}>
-          <Text style={{fontSize: 24, fontWeight: 'bold'}}>Nandom</Text>
-          <Text style={{fontSize: 16}}>nandom@buycorrect.com</Text>
-        </View>
-      </View>
       <View style={{paddingHorizontal: 23, paddingBottom: 24}}>
         <Text style={{color: '#583AEE', fontSize: 14}}>Drop a review</Text>
       </View>

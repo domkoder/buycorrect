@@ -6,6 +6,7 @@ import Products from './app/screens/Products'
 import ProductDetails from './app/screens/ProductDetails'
 import AddListingScreen from './app/screens/AddListingScreen'
 import WelcomeScreen from './app/screens/WelcomeScreen'
+import ViewImageScreen from './app/screens/ViewImageScreen'
 
 import AuthNavigator from './app/navigation/AuthNavigator'
 import MessageNavigator from './app/navigation/MessageNavigator'
@@ -13,8 +14,11 @@ import ProfileNavigator from './app/navigation/ProfileNavigator'
 import colors from './app/config/colors'
 import navigationTheme from './app/navigation/navigationTheme'
 
-import { Amplify } from 'aws-amplify'
-
+import LoginScreen from './app/screens/LoginScreen'
+import {withAuthenticator, useAuthenticator} from '@aws-amplify/ui-react-native'
+import {Amplify} from 'aws-amplify'
+import awsExports from './src/aws-exports'
+Amplify.configure(awsExports)
 
 const Stack = createNativeStackNavigator()
 const ProductNavigator = () => (
@@ -60,7 +64,12 @@ const AddListingNavigator = () => (
 
 const Tab = createBottomTabNavigator()
 const TabNavigator = () => (
-  <Tab.Navigator screenOptions={{headerShown: false, tabBarActiveTintColor: colors.primaryBase}}>
+  <Tab.Navigator
+    screenOptions={{
+      headerShown: false,
+      tabBarActiveTintColor: colors.primaryBase,
+    }}
+  >
     <Tab.Screen
       name="Home"
       component={ProductNavigator}
@@ -113,13 +122,15 @@ const TabNavigator = () => (
   </Tab.Navigator>
 )
 
-export default function App() {
+function App() {
   return (
     // <Products />
-    // <WelcomeScreen />
-    <NavigationContainer theme={navigationTheme}>
-      {/* <AuthNavigator /> */}
-      <TabNavigator />
-    </NavigationContainer>
+    <LoginScreen />
+    // <NavigationContainer theme={navigationTheme}>
+    //   {/* <AuthNavigator /> */}
+    //   <TabNavigator />
+    // </NavigationContainer>
   )
 }
+
+export default App
